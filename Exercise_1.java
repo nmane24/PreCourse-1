@@ -1,3 +1,5 @@
+import java.io.*;
+
 class Stack { 
     //Please read sample.java file before starting.
   //Kindly include Time and Space complexity at top of each file
@@ -8,33 +10,60 @@ class Stack {
     boolean isEmpty() 
     { 
         //Write your code here 
+        if (top == -1) return true;
+        else {return false;}
+        
     } 
 
     Stack() 
     { 
         //Initialize your constructor 
+        this.top = -1;
     } 
   
     boolean push(int x) 
     { 
         //Check for stack Overflow
+      
+         if (top+1 == MAX){
+            
+            System.out.println("Stack Overflow");
+            return false;
+        }
+        top++;
+        a[top]= x;
+        return true;
         //Write your code here
+    
+        
     } 
   
     int pop() 
     { 
-        //If empty return 0 and print " Stack Underflow"
+        //If empty return 0 and print " Stack Underflow
         //Write your code here
+        if(top == -1){
+            System.out.println("Stack Underflow");
+            return 0;
+        }
+        
+        top--;
+        return a[top+1];
     } 
   
     int peek() 
     { 
         //Write your code here
+        if (top != -1)
+            return a[top];
+        else
+            return 0;
     } 
-} 
+
+
   
 // Driver code 
-class Main { 
+
     public static void main(String args[]) 
     { 
         Stack s = new Stack(); 
